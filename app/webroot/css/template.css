@@ -1,0 +1,40 @@
+span.update a, span.remove a, span.info a{
+	display: inline-block;
+	text-decoration: none;
+}
+span.update a{
+	color:#246314;
+}
+span.remove a {
+	color: #DD2255;
+}
+div.controller_nav ul{
+	text-align: center;
+}
+div.controller_nav ul li, div.info_nav ul li{
+	display: inline;
+}
+div.controller_nav ul li a{
+	text-decoration: none;
+	border: 1px solid grey;
+	color:grey;
+	padding: 5px;
+	border-radius: 10px;
+}
+div.controller_nav ul li a:hover{
+	background-color: lightgrey;
+	border-radius: 20px;
+}
+
+span.home_name a{
+	font-family: sans-serif;
+	font-size: bigger;
+	text-transform: uppercase;
+	text-decoration: none;
+}
+span.title a{
+	text-transform: uppercase;
+}
+span.info a{
+	color: #D2A815;
+}
