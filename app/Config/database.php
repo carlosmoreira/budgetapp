@@ -69,7 +69,7 @@ class DATABASE_CONFIG {
 		'persistent' => false,
 		'host' => 'localhost',
 		'login' => 'root',
-		'password' => '!Mac2001',
+		'password' => '',
 		'database' => 'budget_app',
 		'prefix' => '',
 		//'encoding' => 'utf8',
