@@ -1,3 +1,3 @@
 <pre>
-<?php print_r($bills); ?>
+<?php //print_r($bills); ?>
 </pre>

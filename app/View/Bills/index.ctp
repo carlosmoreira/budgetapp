@@ -1,13 +1,17 @@
 <?php
 	echo $this->element('nav_controllers');
 	echo $this->fetch('nav_bills');
-	echo "<pre>";
-	print_r($Bills);
-	echo "</pre>";
+	///echo "<pre>";
+	//print_r($Bills);
+	//echo "</pre>";
+
 ?>  
+<span><?php echo $this->Html->link('Prev Month', $prevLink ); ?></span>			
+<h2><span id="month"><?php echo $dateDisplay; ?></span></h2>
+<span><?php echo $this->Html->link('Next Month', $nextLink ); ?></span>			
 
+<hr />
 
-<h2>Month of <span id="month"><?php echo date('M'); ?></span></h2> 
 <h4>Total For <?php echo date('M'); ?> $<span id='monthTotal'></span></h4>
 
 <?php if(!empty($Bills)) : ?>
@@ -64,7 +68,7 @@
 
 		});
 
-		var monthTotal = $('#monthTotal');
+		var monthfTotal = $('#monthTotal');
 		monthTotal.text(totalBills);
 	});
 </script>

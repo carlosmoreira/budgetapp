@@ -7,6 +7,8 @@ class PaymentsController extends AppController
 {
 	public $name = 'Payments';
 	
+
+
 	public function billpay(){
 		if ($this->request->is('post')) {
 			$data = $this->request->data;
@@ -23,6 +25,7 @@ class PaymentsController extends AppController
 
 	public function test(){
 		
+
 	}
 }
 	

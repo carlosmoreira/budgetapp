@@ -3,10 +3,43 @@
 	{
 		public $name = "Bills";
 		
-		public function index($household){
+		public function index($household, $month = null, $year = null){
+			
+
+			/* Should be done in Module */
+			$date = null;
+			$currentDateArray = array(
+									'y' => date('Y'),
+									'm' => date('m')
+									); 
+
+			if($year != null){
+				$date = $year.'-'.$month.'-01';
+			}else if($month != null){
+				$date = $currentDateArray['y'].'-'.$month.'-01';
+			}else{
+				$date = $currentDateArray['y'].'-'.$currentDateArray['m'].'-'.date('d');
+			}
+			
+			$dateDisplay = date('M', strtotime($date)).' of '.date('Y', strtotime($date));
+			$prevLink = date('Y-m-d', strtotime( '-1 month', strtotime($date)));
+			$nextLink = date('Y-m-d', strtotime( '+1 month', strtotime($date)));
+
+			$prevLink = 'index/'.$household.'/'.split('-', $prevLink)[1].'/'.split('-', $prevLink)[0];
+			$nextLink = 'index/'.$household.'/'.split('-', $nextLink)[1].'/'.split('-', $nextLink)[0];
+			
+			
+
 			$this->checkForHouseHold($household);
+			
 			$this->set('household_id', $household);
-			$this->set('Bills' , $this->Bill->getBills($household));
+			$this->set('Bills' , $this->Bill->getBills($household, $month, $year));
+			
+			$this->set('dateDisplay', $dateDisplay);
+			$this->set('prevLink', $prevLink);
+			$this->set('nextLink', $nextLink);
+
+
 		}
 
 		public function add($household){
@@ -21,6 +54,8 @@
 		    	}
 		   }			
 		}
+
+
 
 		public function info($bill){
 			$this->Bill->id = $bill;
