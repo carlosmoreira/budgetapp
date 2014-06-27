@@ -31,15 +31,13 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 		<?php
 			echo $this->Html->meta('icon');
 			echo $this->Html->css('bootstrap');
-			//echo $this->Html->css('template');
+			echo $this->Html->css('custom');
 			echo $this->fetch('meta');
 			echo $this->fetch('css');
 			echo $this->fetch('script');
 		?>
 		<style type="text/css">
-		body{
-			padding-top: 80px;
-		}
+		
 		</style>
 	</head>
 	<body>
@@ -59,7 +57,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 				</div>
 				<div class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="#">Home</a></li>
+						<li class="active"><a href="/budget_app">Home</a></li>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
 							<ul class="dropdown-menu">
@@ -74,8 +72,9 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 					<ul class="nav navbar-nav navbar-right">
 						
 						<?php if($logged_in):  ?>
-						<li>Welcome <?php echo $current_user['email'];?> 
-						<?php //echo $this->Html->link('Logout', array('controller'=>'users', 'action'=>'logout')); ?></li>			
+						<li style="padding-top:15px;">Welcome <?php echo $current_user['email'];?> 
+						<?php //echo $this->Html->link('Logout', array('controller'=>'users', 'action'=>'logout')); ?></li>		
+						<li><a href="/budget_app/users/logout">Logout</a></li>	
 						<?php else : ?>
 						<li><a href="../navbar-static-top/">Register</a></li>
 						<li class="active"><a href="./">Login</a></li>
@@ -96,32 +95,19 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 			<!-- End Nav BAr -->
 			<div classs="container-fluid">
 				<div id="header">
-					<h1>Budgetizer</h1>
+					
 				</div>
 				
 				<div id="content">
-					<div>
-						<?php if($logged_in):  ?>
-						Welcome <?php echo $current_user['email'];?> <?php echo $this->Html->link('Logout', array('controller'=>'users', 'action'=>'logout')); ?>
-						<?php else : ?>
-						<?php echo $this->Html->link('Login', array('controller'=>'users', 'action'=>'login')); ?>
-						<?php endif; ?>
-					</div>
+					
 					<?php echo $this->Session->flash(); ?>
 					<?php echo $this->fetch('content'); ?>
 				</div>
 				<div id="footer">
-					<?php echo $this->Html->link(
-							$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
-							'http://www.cakephp.org/',
-							array('target' => '_blank', 'escape' => false, 'id' => 'cake-powered')
-						);
-					?>
-					<p>
-					<?php echo $cakeVersion; ?>
-					</p>
+					<p class='text-center'>All Rights Reserved &copy; BudgetIzer</p>					
 				</div>
 			</div>
 			<?php echo $this->element('sql_dump'); ?>
+			<?php echo $this->fetch('scriptBottom'); ?>
 		</body>
 	</html>

@@ -3,6 +3,11 @@
 	  echo $this->fetch('nav_households');
  ?>
 
+
+
+
+
+
 <table>
 	<tr>
 		<td>Name</td>

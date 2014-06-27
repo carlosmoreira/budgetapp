@@ -1,0 +1,28 @@
+body{
+	padding-top: 50px;
+}
+#parallex_outer{
+	width: 100%;
+	height:400px;
+	overflow: hidden;
+	position: relative;	
+}
+#parallex_con{
+	width: 100%;
+	height:100%;
+	position: absolute;
+	top:0px;
+}
+#parallex_img{
+	width: 100%;
+}
+.changeMonth, #month{
+	display: inline-block;
+}
+#month{
+	font-size:1.6em;
+}
+#bills_container{
+	background-color:#DEDECE      ;
+	padding:5px;
+}

@@ -6,7 +6,9 @@ class AppController extends Controller {
         parent::__construct($request, $response);
         
         $url = explode('/', $_SERVER["REQUEST_URI"]);
-        $this->set('url_id' , $url[sizeof($url)-1]);   
+        $this->set('url_id' , $url[sizeof($url)-1]);  
+        $this->set('logged_in', false);
+
     }
     
     public $components = array(
