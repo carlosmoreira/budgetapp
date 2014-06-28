@@ -4,3 +4,6 @@ $('document').ready(function(){
 			$('#parallex_con').css('top', (offset * -1 ) + 'px');
 		});
 });
+
+
+

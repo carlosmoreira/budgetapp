@@ -1,14 +1,13 @@
 <?php
-	echo $this->element('nav_controllers');
-	echo $this->fetch('nav_bills');
 ///echo "<pre>";
 //print_r($Bills);
 	//echo "</pre>";
 ?>
 <div class="text-center">
-	<span class='changeMonth prevMonth'><?php echo $this->Html->link('Prev Month', $prevLink ); ?></span> -
+	<br />
+	<span class='changeMonth prevMonth'><?php echo $this->Html->link('', $prevLink , array('class'=>'glyphicon glyphicon-arrow-left') ); ?></span>
 	<span id="month"><?php echo $dateDisplay; ?></span>
-	- <span class='changeMonth nextMonth'><?php echo $this->Html->link('Next Month', $nextLink ); ?></span>
+	<span class='changeMonth nextMonth'><?php echo $this->Html->link('', $nextLink, array('class'=>'glyphicon glyphicon-arrow-right') ); ?></span>
 </div>
 <hr />
 <h4>Total For <?php echo date('M'); ?> $<span id='monthTotal'></span></h4>

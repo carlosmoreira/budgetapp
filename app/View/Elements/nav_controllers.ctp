@@ -6,7 +6,7 @@
 				'Add', 
 				array(
 					'controller'=>'Households',
-					'action'=>'add', $url_id)) ?></li>
+					'action'=>'add')) ?></li>
 	</ul>
 </div>
 <?php $this->end() ?>
@@ -24,6 +24,7 @@
 	</ul>
 </div>
 <?php $this->end(); ?>
+
 
 
 

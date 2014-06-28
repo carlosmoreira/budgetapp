@@ -41,73 +41,51 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 		</style>
 	</head>
 	<body>
-		<!-- Start Nav Bar -->
-		
-		<!-- Fixed navbar -->
-		<div class="navbar navbar-default navbar-fixed-top" role="navigation">
-			<div class="container">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="#">BudetIzer</a>
-				</div>
-				<div class="navbar-collapse collapse">
-					<ul class="nav navbar-nav">
-						<li class="active"><a href="/budget_app">Home</a></li>
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-							<ul class="dropdown-menu">
-								<li><a href="#">Action</a></li>
-								<li class="divider"></li>
-								<li class="dropdown-header">Nav header</li>
-								<li><a href="#">link1</a></li>
-								
-							</ul>
-						</li>
-					</ul>
-					<ul class="nav navbar-nav navbar-right">
-						
-						<?php if($logged_in):  ?>
-						<li style="padding-top:15px;">Welcome <?php echo $current_user['email'];?> 
-						<?php //echo $this->Html->link('Logout', array('controller'=>'users', 'action'=>'logout')); ?></li>		
-						<li><a href="/budget_app/users/logout">Logout</a></li>	
-						<?php else : ?>
-						<li><a href="../navbar-static-top/">Register</a></li>
-						<li class="active"><a href="./">Login</a></li>
-						<li class="divider-vertical"></li>
-						<li class="dropdown">
-							<a class="dropdown-toggle" href="#" data-toggle="dropdown">Sign In <strong class="caret"></strong></a>
-							<div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
-								<form action="/budget_app/users/login" id="UserLoginForm" method="post" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST"></div><div class="input email required"><label for="UserEmail">Email</label><input name="data[User][email]" maxlength="150" type="email" id="UserEmail" required="required"></div><div class="input password required"><label for="UserPassword">Password</label><input name="data[User][password]" type="password" id="UserPassword" required="required"></div><div class="submit"><input type="submit" value="Login Now"></div></form>
-							</div>
-						</li>
-						<?php //echo $this->Html->link('Login', array('controller'=>'users', 'action'=>'login')); ?>
-						<?php endif; ?>
-						
-					</ul>
-					</div><!--/.nav-collapse -->
-				</div>
-			</div>
-			<!-- End Nav BAr -->
-			<div classs="container-fluid">
-				<div id="header">
-					
-				</div>
+		<?php echo $this->element('site_nav');
+			if($logged_in)
+				echo $this->fetch('nav_site_loggedin');
+			else
+				echo $this->fetch('nav_site_reg');
+		?>
+		<div classs="container-fluid">
+			<div id="header">
 				
-				<div id="content">
-					
-					<?php echo $this->Session->flash(); ?>
-					<?php echo $this->fetch('content'); ?>
-				</div>
-				<div id="footer">
-					<p class='text-center'>All Rights Reserved &copy; BudgetIzer</p>					
-				</div>
 			</div>
-			<?php echo $this->element('sql_dump'); ?>
-			<?php echo $this->fetch('scriptBottom'); ?>
-		</body>
-	</html>
+			
+			<div id="content">
+				
+				<?php echo $this->Session->flash(); ?>
+				<?php echo $this->fetch('content'); ?>
+			</div>
+			<div class="footer">
+				<div class="row text-center">
+					<div class="col-md-4">
+						<h4>Contact Info</h4>
+						<p id="contact_info">
+						Carlos Moreira
+						<br /><br />
+						123 NW 79th St.<br />
+						Pembroke Pines FL, 33027
+						<br /><br />
+						Email: <a href="#">carlos@therealcarlos.com</a>
+						</p>
+					</div>
+					<div class="col-md-4">
+						<h4>Links</h4>
+					</div>
+					<div class="col-md-4">
+						<h4>Try It!</h4>
+						<p>Click here to try it now!</p>
+					</div>
+				</div>
+				<hr />
+				<span class='text-center'>All Rights Reserved &copy; BudgetIzer
+				<br />
+				Powered By <a href="http://www.therealcarlos.com">www.therealcarlos.com</a>
+				</span>
+			</div>
+		</div>
+		<?php echo $this->element('sql_dump'); ?>
+		<?php echo $this->fetch('scriptBottom'); ?>
+	</body>
+</html>
