@@ -57,6 +57,12 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 				<?php echo $this->Session->flash(); ?>
 				<?php echo $this->fetch('content'); ?>
 			</div>
+			
+			<div class="bg-info text-center">
+			<?php echo $this->element('sql_dump'); ?>
+			<?php echo $this->fetch('scriptBottom'); ?>
+			</div>
+
 			<div class="footer">
 				<div class="row text-center">
 					<div class="col-md-4">
@@ -85,7 +91,6 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 				</span>
 			</div>
 		</div>
-		<?php echo $this->element('sql_dump'); ?>
-		<?php echo $this->fetch('scriptBottom'); ?>
+		
 	</body>
 </html>

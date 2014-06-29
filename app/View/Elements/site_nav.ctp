@@ -64,7 +64,7 @@
 					<li class="active"><a href="/budget_app">Home</a></li>
 					
 					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Households <b class="caret"></b></a>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Household Payments <b class="caret"></b></a>
 						<ul class="dropdown-menu">
 							<li>
 								<?php echo $this->Html->link('View All', array('controller'=>'Households','action'=>'index')); ?>	
@@ -76,6 +76,7 @@
 							
 						</ul>
 					</li>
+					<li><?php echo $this->Html->link('Manage Bills', array('controller'=>'Bills', 'action'=>'all')); ?></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li style="padding-top:15px;">Welcome <?php echo $current_user['email'];?>

@@ -76,6 +76,14 @@
 			);
 			return $this->find('all', $options);
 		}
+
+		public function allBills($household){
+			$options['conditions'] = array(
+					'Household_Id' => $household
+				);
+			return $this->find('all', $options);
+		}
+
 		public function setInactive($id){
 			return array('active' => 0);
 		}

@@ -112,14 +112,22 @@
 			$this->Session->setFlash('Remove Bill');
 		}
 
+		public function all($household = null)
+		{
+			Controller::loadModel('Household');
+			$allhouseholds = $this->Household->get();
+
+			$this->set('allhouseholds', $allhouseholds);
+			$this->set('household', $household);
+			$bills = ($household == null) ? null : $this->Bill->allBills($household);
+			$this->set('bills', $bills);
+
+		}
+
 		private function checkForHouseHold($household){
 			if($household == '' || $household == null){
 				$this->Session->setFlash('Error Adding Bill. Please, try again.');
 			}
-
-
-
-
 		}		
 	}
 ?>
