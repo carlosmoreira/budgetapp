@@ -63,3 +63,28 @@
 		monthTotal.text(totalBills);
 	});
 </script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.billAmount').focus(function(){
+			
+			var pos = $(this).offset();
+			var body = $('body');
+			var totalTemplate = "<div class='totalTemplateHolder'><div id='closeTotalTemplate'>X</div></div>";
+			body.append(totalTemplate);
+			var findTemplate = body.find('.totalTemplateHolder');
+			findTemplate.css({
+				'top': pos.top - (findTemplate.height()/2)+'px',
+				'left': pos.left + $(this).parent().width() +'px'
+			});
+
+
+			var closeTotalTemplate = findTemplate.find('#closeTotalTemplate');
+			closeTotalTemplate.click(function(event) {
+				/* Act on the event */
+				$(this).parent().remove();
+			});
+
+		});
+
+	});
+</script>

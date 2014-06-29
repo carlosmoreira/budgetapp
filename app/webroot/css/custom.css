@@ -64,3 +64,23 @@ body{
 #householdchangeholder{
 	margin: 10px;
 }
+.totalTemplateHolder{
+	width: 200px;
+	height: 150px;
+	border: 1px solid grey;
+	background-color: blue;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 999;
+}
+#closeTotalTemplate{
+	color:white;
+	position: absolute;
+	right: 2px;
+	top: 2px;
+	border-left: 1px solid white;
+	border-right: 1px solid white;
+	cursor: pointer;
+}
+
